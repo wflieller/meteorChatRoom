@@ -1,0 +1,25 @@
+<head>
+    <title>The Black Hole</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>The Mad Chatter</h1>
+            {{> loginButtons}} {{#if currentUser}}
+            <form class="new-task">
+                <input type="text" name="text" placeholder="Chat" />
+            </form>
+            {{/if}}
+        </header>
+        <ul>
+            {{#each tasks}} {{> task}} {{/each}}
+        </ul>
+    </div>
+</body>
+<template name="task">
+    <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+        <button class="delete">&times;</button>
+        <span class="text"><strong>{{username}}</strong> - {{text}}<br>{{createdAt}}</span>
+    </li>
+</template>
